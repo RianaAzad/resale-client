@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const menuItems = <React.Fragment>
-        <li><Link>Home</Link></li>
-        <li><Link>All Products</Link></li>
-        <li><Link>Blog</Link></li>
-        <li><Link>Contact</Link></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/allProducts'>All Products</Link></li>
+        <li><Link to='blog'>Blog</Link></li>
+        <li><Link to='/contact'>Contact</Link></li>
     </React.Fragment>
 
     return (
@@ -20,7 +20,7 @@ const Navbar = () => {
         {menuItems}
       </ul>
     </div>
-    <Link to='/' className="btn btn-ghost normal-case text-xl">Buy & Sale</Link>
+    <Link to='/' className="normal-case text-xl">Buy & Sale</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
