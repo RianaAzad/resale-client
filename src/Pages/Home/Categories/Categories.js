@@ -1,28 +1,22 @@
-import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
-    const categories= [
-    {
-        cid: 1,
-        categoryName: 'Sedan',
-        image: 'https://i.ibb.co/DDx1Q7v/img4.jpg'
-    },
-    {
-        cid: 2,
-        categoryName: 'Convertible',
-        image: 'https://i.ibb.co/DDx1Q7v/img4.jpg'
-    },
-    {
-        cid: 3,
-        categoryName: 'Hatchback',
-        image: 'https://i.ibb.co/DDx1Q7v/img4.jpg'
-    }
-]
+    const url = 'http://localhost:5000/categories';
+    
+    const {data: categories = []} = useQuery({
+        queryKey: ['categories'],
+        queryFn: async()=>{
+            const res= await fetch(url)
+            const data = await res.json();
+            return data;
+        }
+    })
+
     return (
-        <div>
+        <div className='my-24'>
             <p className='text-3xl text-primary font-bold text-center my-12 italic'>Categories</p>
-        <div className='grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className='grid gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {
                 categories.map(category => <CategoryCard
                 key={category.cid}

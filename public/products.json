@@ -1,6 +1,5 @@
 [
     {
-      "_id": "637f5c990209cd9bd8dd8382",
       "cid": 1,
       "categoryName": "Sedan",
       "name": "Hogan Gamble",
@@ -16,7 +15,6 @@
       "advertise": true
     },
     {
-      "_id": "637f5c9906dbdf2a7aecada6",
       "cid": 1,
       "categoryName": "Sedan",
       "name": "Battle Floyd",
@@ -32,7 +30,6 @@
       "advertise": true
     },
     {
-      "_id": "637f5c9974fdadbf1da63b5c",
       "cid": 1,
       "categoryName": "Convertible",
       "name": "Jocelyn Vinson",
@@ -48,7 +45,6 @@
       "advertise": true
     },
     {
-      "_id": "637f5c9939560a41a2c6f5d3",
       "cid": 1,
       "categoryName": "Convertible",
       "name": "Janis Mathews",
@@ -64,7 +60,6 @@
       "advertise": true
     },
     {
-      "_id": "637f5c99cc28def5fcbf4e2f",
       "cid": 1,
       "categoryName": "Hatchback",
       "name": "Walton Miranda",
@@ -80,7 +75,6 @@
       "advertise": true
     },
     {
-      "_id": "637f5c9978be397fb64a1dd0",
       "cid": 1,
       "categoryName": "Hatchback",
       "name": "Adriana Franks",
