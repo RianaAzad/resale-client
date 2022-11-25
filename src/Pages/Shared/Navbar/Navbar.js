@@ -39,14 +39,20 @@ const Navbar = () => {
           {menuItems}
         </ul>
       </div>
+      
       {
         user?.uid ?
           <div className="navbar-end">
             <button onClick={handleLogOut} className="btn btn-sm">Log Out</button>
           </div>
-          : <div className="navbar-end">
+          : <>
+          <div className="navbar-end">
             <Link to='/login' className="btn btn-sm">Log In</Link>
           </div>
+          <div className="ml-3">
+          <Link to='/signup' className="btn btn-sm">Sign Up</Link>
+        </div>
+          </>
       }
     </div>
   );
