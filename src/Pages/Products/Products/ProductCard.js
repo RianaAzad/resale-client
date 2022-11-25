@@ -1,4 +1,5 @@
 import React from 'react';
+import BookingModal from '../BookingModal/BookingModal';
 
 
 const ProductCard = ({product, setProduct}) => {
@@ -19,6 +20,11 @@ const ProductCard = ({product, setProduct}) => {
                 <label htmlFor="booking-modal" className="btn" onClick={()=> setProduct(product)}>Book Now</label>
                 </div>
             </div>
+            {
+            product && <BookingModal
+            product={product}
+            ></BookingModal>
+        }
         </div>
     );
 };

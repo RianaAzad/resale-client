@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import BookingModal from '../BookingModal/BookingModal';
 import ProductCard from './ProductCard';
 
 
@@ -20,11 +19,6 @@ const Products = () => {
             ></ProductCard>)
            }
         </div>
-        {
-            product && <BookingModal
-            product={product}
-            ></BookingModal>
-        }
         </div>
     );
 };
