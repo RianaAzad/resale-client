@@ -6,6 +6,7 @@ import buyer from '../../assets/buyer.png';
 import seller from '../../assets/seller.png';
 import toast from 'react-hot-toast';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useToken from '../../hooks/useToken';
 
 
 
@@ -13,15 +14,20 @@ const Signup = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, updateUser, providerLogin } = useContext(AuthContext);
     const [signUpError, setSignUpError] = useState('');
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
 
+    if(token){
+        navigate(from, {replace: true});
+    }
+
     const handleSignup = data => {
         console.log(data);
         setSignUpError('');
-        navigate(from, {replace: true});
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user;
@@ -33,12 +39,30 @@ const Signup = () => {
                     photoURL: data.role
                 }
                 updateUser(userInfo)
-                    .then(() => { })
+                    .then(() => {
+                        saveUser(data.name, data.email, data.role);
+                     })
                     .catch(e => console.error(e))
             })
             .catch(e => {
                 setSignUpError(e.message)
             })
+    }
+
+    // Save user in database
+    const saveUser = (name, email, role) => {
+        const user = {name, email, role};
+        fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+            setCreatedUserEmail(email);
+        })
     }
 
     const googleProvider = new GoogleAuthProvider();
