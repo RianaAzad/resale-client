@@ -2,8 +2,7 @@ import { createBrowserRouter} from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout";
 import Main from "../../Layout/Main";
 import AddProducts from "../../Pages/Dashboard/AddProducts/AddProducts";
-import AllBuyers from "../../Pages/Dashboard/AllBuyers/AllBuyers";
-import AllSellers from "../../Pages/Dashboard/AllSellers/AllSellers";
+import AllUsers from "../../Pages/Dashboard/AllUsers/AllUsers";
 import Dashboard from "../../Pages/Dashboard/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Dashboard/MyOrders/MyOrders";
 import MyProducts from "../../Pages/Dashboard/MyProducts/MyProducts";
@@ -11,7 +10,10 @@ import Home from "../../Pages/Home/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Signup from "../../Pages/Login/Signup";
 import Products from "../../Pages/Products/Products/Products";
+import AdminRoute from "../AdminRoute/AdminRoute";
+import BuyerRoute from "../BuyerRoute/BuyerRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerRoute from "../SellerRoute/SellerRoute";
 
 const router = createBrowserRouter([
     {
@@ -48,23 +50,19 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/myOrders',
-                element: <MyOrders></MyOrders>
+                element: <BuyerRoute><MyOrders></MyOrders></BuyerRoute>
             },
             {
                 path: '/dashboard/myProducts',
-                element: <MyProducts></MyProducts>
+                element: <SellerRoute><MyProducts></MyProducts></SellerRoute>
             },
             {
                 path: '/dashboard/addProducts',
-                element: <AddProducts></AddProducts>
+                element: <SellerRoute><AddProducts></AddProducts></SellerRoute>
             },
             {
-                path: '/dashboard/allBuyers',
-                element: <AllBuyers></AllBuyers>
-            },
-            {
-                path: '/dashboard/allSellers',
-                element: <AllSellers></AllSellers>
+                path: '/dashboard/allUsers',
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             }
         ]
     }
