@@ -15,7 +15,7 @@ const AddProducts = () => {
         const image = data.picture[0];
         const formData = new FormData();
         formData.append('image', image);
-        const url = `https://api.imgbb.com/1/upload?expiration=6000&key=${imageKey}`;
+        const url = `https://api.imgbb.com/1/upload?&key=${imageKey}`;
         fetch(url, {
             method: 'POST',
             body: formData
@@ -40,7 +40,7 @@ const AddProducts = () => {
                     image: imgData.data.url,
                     available: true,
                     verified: true,
-                    advertise: true
+                    advertise: false
                 }
 
                 // add product info in DB

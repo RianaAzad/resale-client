@@ -9,15 +9,12 @@ const Login = () => {
   const { register, formState: { errors }, handleSubmit } = useForm();
   const { signIn }= useContext(AuthContext);
   const [loginError, setLoginError] = useState('');
-  const location = useLocation();
   const navigate = useNavigate();
   const [loginUserEmail, setLoginUserEmail] = useState('');
   const [token] = useToken(loginUserEmail);
 
-  const from = location.state?.from?.pathname || '/';
-
   if(token){
-    navigate(from, {replace: true});
+    navigate('/');
   }
 
   const handleLogin = data => {

@@ -9,7 +9,7 @@ const Banner = () => {
     <div>
       <h1 className="text-5xl font-bold">The Best Deals Ever!</h1>
       <p className="py-6">We provide the best cars of the city at affordable range. Buying a car is not a dream anymore. Choose your desired car and get free service along with 1 year of guarantee.</p>
-      <button className="btn btn-primary">Get Started</button>
+    
     </div>
   </div>
 </div>

@@ -4,9 +4,9 @@ import { AuthContext } from '../../../context/AuthProvider';
 
 
 const BookingModal = ({ product, setProduct }) => {
-    const { name, resalePrice, company } = product;
+    const { productName, resalePrice, company } = product;
     const { user } = useContext(AuthContext);
-
+console.log( resalePrice, company)
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
@@ -16,7 +16,7 @@ const BookingModal = ({ product, setProduct }) => {
         const booking = {
             buyerName: user.displayName,
             buyerEmail: user.email,
-            productName: name,
+            productName: productName,
             productId: product._id,
             resalePrice,
             productImage: product.picture,
@@ -53,7 +53,7 @@ const BookingModal = ({ product, setProduct }) => {
                             <input type="text" disabled defaultValue={user?.email} className="input input-bordered input-primary w-full my-2" />
                         </div>
                         <div className='grid gap-2 grid-cols-3'>
-                            <input type="text" disabled defaultValue={name} className="input input-bordered input-primary w-full my-2" />
+                            <input type="text" disabled defaultValue={productName} className="input input-bordered input-primary w-full my-2" />
                             <input type="text" disabled defaultValue={`Price: $${resalePrice}`} className="input input-bordered input-primary w-full my-2" />
                             <input type="text" disabled value={company} className="input input-bordered input-primary w-full my-2" />
                         </div>

@@ -7,8 +7,8 @@ const CategoryCard = ({ categoryItem }) => {
     }
 
     return (
-        <div className="card glass mx-auto">
-            <figure><img src={image} alt="car!" /></figure>
+        <div className="card w-96 glass mx-auto">
+            <figure><img className='w-full' src={image} alt="car!" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{category}</h2>
                 

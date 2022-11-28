@@ -1,14 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../context/AuthProvider';
 
 const MyProducts = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
 
-    const { data: products = [] } = useQuery({
+    const { data: products = [],  } = useQuery({
         queryKey: ['products', user?.displayName],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/sellerProducts?seller=${user.displayName}`, {
@@ -20,6 +20,24 @@ const MyProducts = () => {
             return data;
         }
     })
+
+    // // available
+    // const handleAvailable = (id) => {
+    //     fetch(`http://localhost:5000/products/${id}`, {
+    //         method: 'PUT',
+    //         headers: {
+    //             authorization: `bearer ${localStorage.getItem('accessToken')}`
+    //         }
+    //     })
+    //     .then(res => res.json())
+    //     .then(data => {
+    //         if(data.modifiedCount>0){
+    //             toast.success('The product is marked as Sold!');
+    //             refetch();
+
+    //         }
+    //     })
+    // }
 
     // advertise
     const handleAdvertise = (id)=>{
@@ -65,11 +83,12 @@ const MyProducts = () => {
                             <td>{product.resalePrice}</td>
                             <td>{product.postedOn}</td>
                             {
-                                product.available? <td><Link to={`/dashboard/update/${product._id}`}><button className='btn btn-primary btn-sm'>Available</button></Link></td>
-                                : <td><Link to={`/dashboard/update/${product._id}`}><button className='btn btn-accent btn-sm'>Sold</button></Link></td>
+                                product.available? <td><button className='btn btn-primary btn-sm'>Available</button></td>
+                                : <td><button className='btn btn-accent btn-sm'>Sold</button></td>
                             }
                             {
-                                product.advertise || <td><button onClick={() => handleAdvertise(product._id)} className='btn btn-primary btn-sm'>Advertise</button></td>
+                                product.advertise? <td><button onClick={() => handleAdvertise(product._id)} className='btn btn-primary btn-sm'>In Advertise</button></td> :
+                                <td><button  className='btn btn-secondary btn-sm'>Advertise</button></td>
                             }
                         </tr>)
                         }
