@@ -1,6 +1,10 @@
 Buy and Sale
 
-Link: 
+Link: https://resale-a7ba3.web.app
+
+admin account: 
+email: admin@gmail.com
+password: Admin@1
 
 The resale website is mainly aimed to sell second hand cars. the functionality of this website is :
 1. we can log in as buyer and see all products along with the bookings that i have given
