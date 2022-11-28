@@ -23,7 +23,7 @@ const Navbar = () => {
     </React.Fragment>
 
   return (
-    <div className="navbar bg-gradient-to-r from-white via-white to-primary">
+    <div className="navbar ">
       <div className="navbar-start">
         <div className="dropdown">
           <label tabIndex={0} className="btn btn-ghost lg:hidden">

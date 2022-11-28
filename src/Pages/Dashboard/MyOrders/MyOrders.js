@@ -32,7 +32,6 @@ const MyOrders = () => {
                     <thead>
                         <tr>
                             <th>SL</th>
-                            <th>Image</th>
                             <th>Product</th>
                             <th>Price</th>
                             <th>Action</th>
@@ -44,7 +43,6 @@ const MyOrders = () => {
                             bookings.map((booking, i) =>
                                 <tr className="hover">
                                     <th>{i + 1}</th>
-                                    <th><img src={booking.productImage} alt="" /></th>
                                     <td>{booking.productName}</td>
                                     <td>${booking.resalePrice}</td>
                                     {
