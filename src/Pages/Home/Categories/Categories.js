@@ -2,7 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import CategoryCard from './CategoryCard';
 
 const Categories = () => {
-    const url = 'http://localhost:5000/categories';
+    const url = 'https://resale-server-rianaazad.vercel.app/categories';
     
     const {data: categories = []} = useQuery({
         queryKey: ['categories'],

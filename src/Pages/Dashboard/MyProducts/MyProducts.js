@@ -11,7 +11,7 @@ const MyProducts = () => {
     const { data: products = [],  } = useQuery({
         queryKey: ['products', user?.displayName],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/sellerProducts?seller=${user.displayName}`, {
+            const res = await fetch(`https://resale-server-rianaazad.vercel.app/sellerProducts?seller=${user.displayName}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -23,7 +23,7 @@ const MyProducts = () => {
 
     // // available
     // const handleAvailable = (id) => {
-    //     fetch(`http://localhost:5000/products/${id}`, {
+    //     fetch(`https://resale-server-rianaazad.vercel.app/products/${id}`, {
     //         method: 'PUT',
     //         headers: {
     //             authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -41,7 +41,7 @@ const MyProducts = () => {
 
     // advertise
     const handleAdvertise = (id)=>{
-        fetch(`http://localhost:5000/products/${id}`, {
+        fetch(`https://resale-server-rianaazad.vercel.app/products/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

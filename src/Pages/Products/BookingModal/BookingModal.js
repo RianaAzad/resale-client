@@ -23,7 +23,7 @@ console.log( resalePrice, company)
             meetingLocation,
             mobileNumber
         }
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://resale-server-rianaazad.vercel.app/bookings', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

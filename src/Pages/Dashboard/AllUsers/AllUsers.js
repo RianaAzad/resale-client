@@ -7,7 +7,7 @@ const AllUsers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/users');
+            const res = await fetch('https://resale-server-rianaazad.vercel.app/users');
             const data = await res.json();
             setDisplayUsers(users)
             return data;
@@ -18,7 +18,7 @@ const AllUsers = () => {
     const handleRemove = user => {
         const agree = window.confirm(`Are you sure you want to delete: ${user.displayName}`)
         if(agree){
-            fetch(`http://localhost:5000/users/${user._id}`, {
+            fetch(`https://resale-server-rianaazad.vercel.app/users/${user._id}`, {
                 method: 'DELETE'
             })
             .then(res =>res.json())
@@ -33,7 +33,7 @@ const AllUsers = () => {
     }
 
     const handleAdmin = (id)=>{
-        fetch(`http://localhost:5000/users/admin/${id}`, {
+        fetch(`https://resale-server-rianaazad.vercel.app/users/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

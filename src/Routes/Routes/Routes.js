@@ -43,7 +43,7 @@ const router = createBrowserRouter([
             {
                 path: '/allProducts',
                 element: <AllProducts></AllProducts>,
-                loader: ()=> fetch('http://localhost:5000/products')
+                loader: ()=> fetch('https://resale-server-rianaazad.vercel.app/products')
             },
             {
                 path: '/allProductsCard',
@@ -61,7 +61,7 @@ const router = createBrowserRouter([
             {
                 path: '/products/:category',
                 element: <PrivateRoute><Products></Products></PrivateRoute>,
-                loader: ({params})=> fetch(`http://localhost:5000/products?category=${params.category}`)
+                loader: ({params})=> fetch(`https://resale-server-rianaazad.vercel.app/products?category=${params.category}`)
             }
     
         ]
@@ -93,7 +93,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/payment/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/bookings/${params.id}`),
+                loader: ({params}) => fetch(`https://resale-server-rianaazad.vercel.app/bookings/${params.id}`),
                 element: <BuyerRoute><Payment></Payment></BuyerRoute>
             }
         ]
